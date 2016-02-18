@@ -1,4 +1,7 @@
 #! /bin/sh
+#
+# this script is provided under GPL v3 or upper
+
 
 COLUMNS=`tput cols`
 MARGINS=10
