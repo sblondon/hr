@@ -4,13 +4,18 @@
 
 
 COLUMNS=`tput cols`
-MARGINS=10
+MARGIN_LEFT=5
+MARGINS=`echo ${MARGIN_LEFT}*2 | bc`
 RULE_LENGTH=`echo ${COLUMNS}-${MARGINS} | bc`
 
-printf "\n     "
+printf "\n"
 
+for i in $(seq 1 ${MARGIN_LEFT});
+do
+    printf " "
+done
 
-for i in $(seq 1 $RULE_LENGTH);
+for i in $(seq 1 ${RULE_LENGTH});
 do
     printf "━"
 done
