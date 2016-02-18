@@ -1,4 +1,16 @@
 #! /bin/sh
 
-echo "\n\t\t━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+COLUMNS=`tput cols`
+MARGINS=10
+RULE_LENGTH=`echo ${COLUMNS}-${MARGINS} | bc`
+
+printf "\n     "
+
+
+for i in $(seq 1 $RULE_LENGTH);
+do
+    printf "━"
+done
+
+echo "\n"
 
