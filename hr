@@ -7,8 +7,18 @@ COLUMNS=`tput cols`
 MARGIN_LEFT=5
 MARGINS=`echo ${MARGIN_LEFT}*2 | bc`
 RULE_LENGTH=`echo ${COLUMNS}-${MARGINS} | bc`
+SPACE_HEIGHT="true"
 
-printf "\n"
+if [ "$#" -gt 0 ] ; then
+    if [ "$1" = "-c" ] || [ "$1" = "--compact" ] ; then
+        SPACE_HEIGHT=""
+    fi
+fi
+
+
+if [ ${SPACE_HEIGHT} ]; then
+    printf "\n"
+fi
 
 for i in $(seq 1 ${MARGIN_LEFT});
 do
@@ -20,5 +30,9 @@ do
     printf "━"
 done
 
-echo "\n"
+if [ ${SPACE_HEIGHT} ]; then
+    printf "\n"
+fi
+
+printf "\n"
 
