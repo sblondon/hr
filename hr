@@ -2,6 +2,7 @@
 #
 # this script is provided under GPL v3 or upper
 
+VERSION="0.1.0"
 
 COLUMNS=`tput cols`
 MARGIN_LEFT=5
@@ -12,6 +13,19 @@ SPACE_HEIGHT="true"
 if [ "$#" -gt 0 ] ; then
     if [ "$1" = "-c" ] || [ "$1" = "--compact" ] ; then
         SPACE_HEIGHT=""
+    fi
+
+    if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
+        printf "hg options:\n"
+        printf " -c|--compact) separator without empty lines around\n"
+        printf " -h|--help)    display this help\n"
+        printf " -v|--version) display hr version\n"
+        exit 0
+    fi
+
+    if [ "$1" = "-v" ] || [ "$1" = "--version" ] ; then
+        printf "hg v.${VERSION}\n"
+        exit 0
     fi
 fi
 
